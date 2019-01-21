@@ -1,0 +1,38 @@
+.questioner-btn-transround {
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-weight: normal;
+    text-decoration: none;
+    opacity:0.95;
+    background-color: #A63569;
+}
+
+.questioner-btn-transround:hover {
+    opacity: 1;
+    text-decoration: none;
+    
+}
+
+.questioner-btn-logout {
+    border: none;
+    background-color: #ffffff;
+    margin: 10px 0 10px 10px;
+    color: #616668;
+}
+
+.questioner-btn-logout:hover {
+    color: #A63569
+}
+
+#delete {
+    margin-top: 15px !important;
+    width: 100%;
+    background-color: #d4312d;
+    opacity: 1 !important;
+}
+
+#delete:hover {
+    background-color: red;
+}

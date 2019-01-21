@@ -1,0 +1,278 @@
+/* --- Components design --- */
+
+@import url("components/navbar.css");
+@import url("components/form.css");
+@import url("components/button.css");
+@import url("components/footer.css");
+@import url("components/avatar.css");
+@import url("components/dropdown.css");
+@import url("components/tabs.css");
+@import url("components/list.css");
+@import url("components/messages.css");
+@import url("components/banner.css");
+@import url("components/card.css");
+
+
+
+
+/* --- General design --- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: 0;
+    border: 0;
+}
+
+input:invalid{
+    border-color: #900;
+    
+}
+  
+input:focus:invalid {
+    outline: none;
+}
+
+input:focus:valid {
+    border-color: black;
+    outline: none;
+}
+
+.questioner-center{
+    text-align: center;
+}
+
+.questioner-container {
+    
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.info {
+    color: #dfa000;
+}
+
+.semi {
+    width: 75%;
+}
+
+.partial {
+    width: 60%;
+}
+
+.questioner-rule {
+    color: rgba(220,224,244,0.4);
+}
+
+.fluid {
+    min-height: 45em;
+}
+
+
+.show {
+    display: show;
+}
+
+.bottomless {
+    border-bottom: none !important;
+}
+
+.error {
+    color: #dfa000;
+    padding: 10px;
+    
+}
+
+.icon {
+    color: black;
+    margin-left: 1.5em;
+    font-size: 30px;
+}
+
+.active {
+    border-bottom: 2px solid #A63569;
+    border-radius: 5%;
+    padding-bottom: 5px;
+}
+
+.questioner-span {
+    font-weight: bold;
+    padding-left: 1em;
+    
+}
+
+.questioner-span:hover {
+    color: #A63569;
+}
+
+
+.main-heading {
+    margin-top: 2em;
+}
+
+.questioner-meetup-container {
+    width: 60%;
+    margin: auto;
+}
+
+.questioner-content {
+    margin-top: 5em;
+}
+
+.questioner-vote-div {
+    padding: 25px;
+    
+}
+
+.questioner-vote-div:hover {
+    color: #A63569;
+}
+
+.questioner-votes {
+    padding-right: 20px;
+}
+
+.questioner-question-accessories {
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: bold;    
+}
+
+.questioner-question-accessories:hover {
+    color: #A63569;
+}
+
+.questioner-anchor-button {
+    color: white;
+}
+
+.pad-left {
+    margin-left: 1.2em;
+}
+.pad-left-half {
+    margin-left: 0.5em;
+}
+
+.hang {
+    width: 95%;
+    margin: 0 1em;
+}
+.questioner-margin {
+    margin: 5em 0;
+}
+.danger {
+    color: red;
+    font-size: 1.5em;
+    padding: 5px 0;
+}
+
+.pad-top {
+    margin-top: 7em;
+}
+
+.pad-bottom {
+    margin-bottom: 7em;
+}
+
+.questioner-index-anchor {
+    color: white;
+}
+
+.questioner-column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+}
+
+.questioner-card-row{
+    margin-top: 7em;
+    margin-bottom: 5em;
+
+}
+
+.questioner-card-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#btn-attend {
+    width: 95%;
+    margin: 10px;
+}
+
+
+#btn-detail-attend:focus {
+    background-color: green;
+}
+
+#btn-attend:focus{
+    background-color: green;
+}
+
+.full {
+    width: 85%;
+    margin: 4em 2em;
+}
+
+#home-text {
+    color: rgb(141, 144, 151);
+}
+
+.icon-right{
+    position: absolute;
+    right: 2.5em;
+    font-size: 30px;
+}
+
+.icon-left {
+    position: absolute;
+    left: 2.5em;
+    font-size: 30px;
+}
+
+.questioner-pagination {
+    margin-top: 5em;
+}
+
+.questioner-explore-card {
+    color: black;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .questioner-meetup-container, .partial{
+        width: 100%;
+    }
+    .questioner-meetup-container{
+        width: 100%;
+    }
+    .questioner-vote-div {
+        padding: 10px 5px;
+    }
+    #profile {
+        display: block;
+    }
+    .questioner-column {
+        margin-bottom: 9em;
+    }
+    .questioner-column {
+        width: 100%;
+    }
+    
+}
