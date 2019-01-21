@@ -1,0 +1,118 @@
+.questioner-list-inline {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.questioner-list-inline li{
+    display: table-cell;
+    width: 50px;
+    padding: 10px;
+    
+}
+
+.questioner-list-inline li a i {
+    font-size: 20px;
+    color: #cccccc;
+}
+
+
+.questioner-product-image {
+    border-radius: 7px;
+}
+
+.questioner-product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 95%;
+    margin: 30px auto 0 auto;
+}
+
+.questioner-product:hover {
+    background: #e6e6e6;
+}
+
+.questioner-product-description {
+    flex: 0 auto;
+    padding:  0 10px;
+}
+
+.questioner-product-description h3 {
+    margin-top: 0;
+}
+
+.questioner-product-description h3 {
+    font-size: 19px;
+    margin-bottom: 0;
+}
+
+
+.questioner-product-upvotes {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.questioner-product-upvotes:hover {
+    color: #A63569;
+}
+
+.questioner-list-anchor {
+    color: black;
+}
+
+.questioner-product h3, p {
+    margin-left: 1em;
+}
+
+#questioner-product-comment {
+    margin: 5em 2em;  
+}
+
+#questioner-comment-head {
+    font-size: 2em;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #A63569;
+    border-radius: 5%;  
+}
+
+#questioner-comment-head:hover {
+    color: #A63569;
+}
+
+#questioner-comment-paragraph {
+    padding: 30px 0;
+}
+
+#questioner-comment {
+    color: black;
+}
+
+.questioner-comment-time {
+    padding: 5px 0;
+    color: #9c9b9b;
+}
+.questioner-comment-time:hover {
+    color: #A63569;
+}
+
+#questioner-scheduled {
+    border-bottom: 1px solid #cccccc;
+}
+
+@media screen and (max-width: 800px) {
+    .questioner-product:hover {
+        background: white;
+    }
+    .questioner-product {
+        width: 100%;
+        
+    }
+    
+    .questioner-product-image {
+        display: none;
+    }
+    
+}

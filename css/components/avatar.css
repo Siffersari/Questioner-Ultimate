@@ -1,0 +1,17 @@
+.questioner-avatar {
+    border-radius: 50%;
+    width: 50px;
+}
+.questioner-avatar-small {
+    border-radius: 50%;
+    width: 35px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    #message-avatar {
+        display: none;
+    }
+    
+}

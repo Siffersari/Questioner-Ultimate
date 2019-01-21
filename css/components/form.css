@@ -1,0 +1,97 @@
+.questioner-forms {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    
+    justify-content: space-around;
+}
+
+.questioner-row{
+    border: 1px solid rgba(155, 169, 238, 0.4);
+    padding: 20px;
+    margin: 50px auto;
+    width: 40%;
+}
+
+.questioner-input{
+    padding: 15px;
+    margin-bottom: 20px; 
+      
+}
+.questioner-signup label{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+  padding-right: 2px;
+  
+}
+
+.questioner-reset {
+    width: 125px !important;
+    text-align: left;
+}
+
+.questioner-request {
+    
+    width: 145px !important;    
+}
+
+.questioner-request-input {
+    width: 60% !important;
+  
+}
+
+.questioner-reset-input {
+    width: 65% !important;
+}
+
+.questioner-signup input{
+    width: 65%;
+    padding: 10px;  
+}
+
+.questioner-signup input:focus{
+    color: #A63569;
+}
+
+.questioner-signup button{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.questioner-textbox {
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.questioner-textbox input {
+    min-height: 3em;
+    width: 100%;
+}
+
+.bio {
+    padding: 8em 0 !important;
+}
+
+
+
+
+@media (max-width: 990px){
+    .questioner-row {
+        width: 100%;
+    }   
+}
+
+@media (max-width: 640px) {
+    .questioner-signup label {
+        display: none;
+    }
+}
+
+@media (min-width: 992px){
+    .questioner-row {
+        width: 60%;
+    }
+}
+
