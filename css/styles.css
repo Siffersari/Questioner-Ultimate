@@ -252,6 +252,10 @@ input:focus:valid {
 .questioner-explore-card {
     color: black;
 }
+#signresp {
+    text-align: center;
+    color: #A63569;
+}
 
 
 
