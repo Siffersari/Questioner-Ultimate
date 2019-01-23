@@ -25,6 +25,7 @@
 
     <div class="questioner-container">
         <div class="questioner-row">
+            <p id="signresp"></p>
             <h1 class="questioner-center">SIGN UP</h1>
             <p class="questioner-center">Please fill in this form to create an account.</p>
             <hr class="questioner-rule semi">
@@ -32,44 +33,64 @@
                 <form action="" class="questioner-signup">
                     <div class="questioner-input">
                         <label for="first"><b>First name</b></label>
-                        <input type="text" placeholder="Enter First name" name="first" >
+                        <input type="text" placeholder="Enter First name" name="first" id="signfirst">
                         <br>
+                        <p id="signerrfirst"></p>
                     </div>
                     <div class="questioner-input">
                         <label for="last"><b>Last name</b></label>
 
-                        <input type="text" name="last" placeholder="Enter Last name">
+                        <input type="text" name="last" placeholder="Enter Last name" id="signlast">
                         <br>
+                        <p id="signerrlast"></p>
+                    </div>
+                    <div class="questioner-input">
+                        <label for="other"><b>Other name</b></label>
+
+                        <input type="text" name="other" placeholder="Enter Other name" id="signother">
+                        <br>
+                        <p id="signerrother"></p>
                     </div>
                     <div class="questioner-input">
                         <label for="username"><b>Username</b></label>
 
-                        <input type="text" name="username" placeholder="Enter Username">
+                        <input type="text" name="username" placeholder="Enter Username" id="signuname">
                         <br>
+                        <p id="signerruname"></p>
                     </div>
                     <div class="questioner-input">
                         <label for="email"><b>Email address</b></label>
 
-                        <input type="email" name="email" placeholder="Enter Email">
+                        <input type="email" name="email" placeholder="Enter Email" id="signmail">
                         <br>
+                        <p id="signerrmail"></p>
+                    </div>
+                    
+                    <div class="questioner-input">
+                        <label for="number"><b>Phone number</b></label>
+
+                        <input type="text" name="number" placeholder="Enter Phone number" id="signno">
+                        <br>
+                        <p id="signerrphone"></p>
                     </div>
                     <div class="questioner-input">
                         <label for="password"><b>Password</b></label>
 
-                        <input type="password" name="password" placeholder="Enter Password">
+                        <input type="password" name="password" placeholder="Enter Password" id="signpwd">
                         <br>
+                        <p id="signerrpwd"></p>
                     </div>
                     <div class="questioner-input">
                         <label for="pass-repeat"><b>Repeat Password</b></label>
 
-                        <input type="password" name="pass-repeat" placeholder="Repeat Password">
-
+                        <input type="password" name="pass-repeat" placeholder="Repeat Password" id="signcpwd">
+                        <p id="signerrcpwd"></p>
                     </div>
                     <br>
                     <hr class="questioner-rule">
                     <p>By creating an account you agree to our <a href="#" class="info">Terms & Privacy.</a></p>
 
-                    <button class="questioner-btn-transround">Sign Up</button>
+                    <button class="questioner-btn-transround" id="signupbtn">Sign Up</button>
 
                     <hr class="questioner-rule">
                     <p class="questioner-center">Already a member? <a href="login.html" class="info">Log in.</a></p>
@@ -86,6 +107,8 @@
             <li><a href="#">Help</a></li>
         </ul>
     </footer>
+    <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
