@@ -30,4 +30,5 @@ function signUp(event) {
     });
 }
 
+
 signupbtn.addEventListener('click', signUp);
