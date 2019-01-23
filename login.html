@@ -25,20 +25,20 @@
     <div class="questioner-container fluid">
         <div class="questioner-row">
             <h1 class="questioner-center">LOG IN</h1>
-            
+            <p id="loginresp"></p>
             <hr class="questioner-rule semi">
             <div class="questioner-forms">
                 <form action="" class="questioner-signup">
                     <div class="questioner-input">
                         <label for="username"><b>Username</b></label>
 
-                        <input type="text" name="username" placeholder="Enter Username">
+                        <input type="text" name="username" placeholder="Enter Username" id="loguname">
                         <br>
                     </div>
                     <div class="questioner-input">
                         <label for="password"><b>Password</b></label>
 
-                        <input type="password" name="password" placeholder="Enter Password">
+                        <input type="password" name="password" placeholder="Enter Password" id="logpwd">
                         <br>
                     </div>
 
@@ -46,7 +46,7 @@
                     <hr class="questioner-rule">
                     <p>Forgot your password or details ? Click here to <a href="reset.html" class="info">Reset Password</a></p>
 
-                    <button class="questioner-btn-transround">Log In</button>
+                    <button class="questioner-btn-transround" id="loginbtn">Log In</button>
 
                     <hr class="questioner-rule">
                     <p class="questioner-center">Not registered with us yet? <a href="register.html" class="info">Sign up</a></p>
@@ -63,6 +63,7 @@
             <li><a href="#">Help</a></li>
         </ul>
     </footer>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
