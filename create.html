@@ -68,6 +68,7 @@
 
     <div class="questioner-container">
         <div class="questioner-row">
+            <p class="top-response" id="cmeetresp"></p>
             <h1 class="questioner-center">CREATE MEETUP</h1>
 
             <hr class="questioner-rule semi">
@@ -76,38 +77,44 @@
                     <h3> Where will your Meetup be held ? </h3>
                     <div class="questioner-textbox">
 
-                        <input type="text" placeholder="E.g   Art of Music, Westlands - Nairobi">
+                        <input type="text" placeholder="E.g   Art of Music, Westlands - Nairobi" id="createloc">
                         <br>
                     </div>
                     <h3>What date will your meetup be ? </h3>
                     <div class="questioner-textbox">
 
-                        <input type="date">
+                        <input type="date" id="createdate">
                         <br>
                     </div>
                     <h3>At what time will your Meetup take place ? </h3>
                     <p><em>Please use the 24 Hour clock system</em></p>
                     <div class="questioner-textbox">
 
-                        <input type="time">
+                        <input type="time" id="createtime">
                         <br>
                     </div>
                     <h3>What will be the name of your Meetup ? </h3>
                     <div class="questioner-textbox">
 
-                        <input type="text" placeholder="E.g   Nairobi Coders">
+                        <input type="text" placeholder="E.g   Nairobi Coders" id="createname">
                         <br>
                     </div>
                     <h3>What will your Meetup be about ?</h3>
                     <div class="questioner-textbox">
 
-                        <input type="text" placeholder="E.g.  Embracing cultural beliefs">
+                        <input type="text" placeholder="E.g.  Embracing cultural beliefs" id="createabout">
+                        <br>
+                    </div>
+                    <h3>Add some tags ?</h3>
+                    <div class="questioner-textbox">
+
+                        <input type="text" placeholder="E.g.  Computer, Technology" id="createtags">
                         <br>
                     </div>
                     <h3>Write a brief bio about the Meetup and who should join.</h3>
                     <div class="questioner-textbox">
 
-                        <textarea rows="10" cols="30" wrap="physical" name="comments"></textarea>
+                        <textarea rows="10" cols="30" wrap="physical" name="comments" id="createbio"></textarea>
                         <br>
                     </div>
 
@@ -115,7 +122,7 @@
                     <hr class="questioner-rule">
 
 
-                    <button class="questioner-btn-transround">CREATE MEETUP</button>
+                    <button class="questioner-btn-transround" id="createmeet">CREATE MEETUP</button>
 
 
 
@@ -133,7 +140,7 @@
         </ul>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/create.js"></script>
 </body>
 
 </html>
