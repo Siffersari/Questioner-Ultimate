@@ -6,7 +6,7 @@ questions to be answered. Other users can vote on asked questions and they bubbl
 # Background Knowledge
 This is the User Interface(UI) consuming the Questioner API
 
-The template homepage for this project can be found [here](https://siffersari.github.io/Questioner/UI/index.html)
+The template homepage for this project can be found [here](https://siffersari.github.io/Questioner-Ultimate/index.html)
 
 # Features
 * Users can create an account
