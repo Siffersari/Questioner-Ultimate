@@ -260,6 +260,15 @@ input:focus:valid {
     text-align: center;
     color: #A63569;
 }
+#adminmeetsview {
+    margin-top: 2em;
+    font-size: 1.8em;
+}
+.questioner-tags {
+    padding: 5px;
+    background-color: #A63569;
+    color: white;
+}
 
 
 
