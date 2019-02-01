@@ -71,7 +71,7 @@ window.onload = function getQuestions(event) {
         while (i >= 0) {
           result += `<div class="questioner-message">
           <div class="questioner-vote-div">
-                <i class="fa fa-caret-up"></i><br> <span class="questioner-votes">${data.data[i].votes}</span> <br> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up" id="upvote"></i><br> <span class="questioner-votes">${data.data[i].votes}</span> <br> <i class="fa fa-caret-down" id="downvote"></i>
             </div>
             
             <div class="questioner-message-name">
