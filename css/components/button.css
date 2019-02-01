@@ -26,13 +26,13 @@
     color: #A63569
 }
 
-#delete {
+.delete {
     margin-top: 15px !important;
     width: 100%;
     background-color: #d4312d;
     opacity: 1 !important;
 }
 
-#delete:hover {
+.delete:hover {
     background-color: red;
 }
