@@ -64,9 +64,13 @@
     </div>
 
 
+
     <div class="questioner-container fluid">
 
+
+
         <div class="questioner-meetup-container">
+
             <div class="questioner-tabs">
                 <div class="questioner-tabs-item active">
                     <h3>75</h3>
@@ -90,13 +94,18 @@
 
             </div>
 
+
+
             <div class="questioner-product">
+
+
 
                 <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
                 <div class="questioner-product-description">
-                    <h3> <a href="#" class="questioner-list-anchor">National Heritage</a></h3>
+                    <h3> <a href="#" class="questioner-list-anchor" id="meetuptopic">Continous Testing Data</a></h3>
                     <p>Embracing cultural beliefs and misconceptions.</p>
-                    <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> Bomas of Kenya, Nairobi</span>
+                    <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> Small Offices, Nairobi,
+                        Kenya</span>
                     <br><br>
                     <span class="questioner-span"> 05/01/19 </span>
                     <span class="questioner-span">10:30 AM</span>
@@ -107,69 +116,15 @@
             </div>
         </div>
         <div class="questioner-content">
+            <p class="top-response" id="questionresp"></p>
             <hr class="questioner-rule partial">
+
             <h1 class="questioner-center main-content-heading">MEETUP QUESTIONS</h1>
             <hr class="questioner-rule partial">
         </div>
-        <div class="questioner-message">
-            <div class="questioner-vote-div">
-                <i class="fa fa-caret-up"></i><br> <span class="questioner-votes">30</span> <br> <i class="fa fa-caret-down"></i>
-            </div>
-            <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
-            <div class="questioner-message-name">
-                <h3>Gaucho Mmoja</h3>
-                <p>10/07/17</p>
-            </div>
-            <div class="questioner-message-body">
-                <p><strong>Cultural Misconception</strong></p>
-                <p>
-                    What is the most cultural thing that we are forgetting?
-                </p>
-                <div class="questioner-question-accessories">
-                    <span class="questioner-comments">20</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
+        <div class="questioner-message" id="questiondivision">
+            
         </div>
-
-        <div class="questioner-message">
-            <div class="questioner-vote-div">
-                <i class="fa fa-caret-up"></i><br> <span class="questioner-votes">12</span> <br> <i class="fa fa-caret-down"></i>
-            </div>
-            <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
-            <div class="questioner-message-name">
-                <h3>Wayne Rooney</h3>
-                <p>10/07/17</p>
-            </div>
-            <div class="questioner-message-body">
-                <p><strong>Jamuhuri Day</strong></p>
-                <p>
-                    What more can be added to the list of activities to be performed?
-                </p>
-                <div class="questioner-question-accessories">
-                    <span class="questioner-comments">45</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
-        </div>
-        <div class="questioner-message">
-            <div class="questioner-vote-div">
-                <i class="fa fa-caret-up"></i><br> <span class="questioner-votes">48</span><br> <i class="fa fa-caret-down"></i>
-            </div>
-            <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
-            <div class="questioner-message-name">
-                <h3>Zinedine Zidane</h3>
-                <p>10/07/17</p>
-            </div>
-            <div class="questioner-message-body">
-                <p><strong>I am not sure yet</strong></p>
-                <p>
-                    I am not sure yet! Maybe Zidane made football culture news
-                </p>
-                <div class="questioner-question-accessories">
-                    <span class="questioner-comments">25</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
-        </div>
-
 
         <div class="questioner-content">
             <hr class="questioner-rule partial">
@@ -181,7 +136,7 @@
                 <h3> Title </h3>
                 <div class="questioner-textbox">
 
-                    <input type="text" placeholder="E.g   Improving Motor Efficiency" required>
+                    <input type="text" placeholder="E.g   Improving Motor Efficiency" id="questiontitle">
                     <br>
                 </div>
 
@@ -189,7 +144,7 @@
                 <h3>Description</h3>
                 <div class="questioner-textbox">
 
-                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="50"></textarea>
+                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="50" id="questiondescription"></textarea>
                     <br>
                 </div>
 
@@ -197,7 +152,7 @@
 
 
 
-                <button class="questioner-btn-transround">POST QUESTION</button>
+                <button class="questioner-btn-transround" id="postquestion">POST QUESTION</button>
 
 
 
@@ -216,7 +171,7 @@
     </footer>
 
 
-    <script src="js/main.js"></script>
+    <script src="js/questionpost.js"></script>
 </body>
 
 </html>
