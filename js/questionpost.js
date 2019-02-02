@@ -28,10 +28,8 @@ function postQuestion(event) {
             body: document.getElementById('questiondescription').value,
           }),
         })
-          .then(async (resp) => {
-            if (resp.ok) {
-              const data = await resp.json();
-
+          .then(async (response) => {
+            if (response.ok) {
               document.getElementById('questionresp').innerHTML = 'Your question is now live';
 
               setTimeout(() => {
@@ -69,17 +67,13 @@ window.onload = function getQuestions(event) {
         let i = numberQuestions - 1;
         let result = ' ';
         while (i >= 0) {
-          result += `<div class="questioner-message">
-          <div class="questioner-vote-div">
-                <i class="fa fa-caret-up" id="upvote"></i><br> <span class="questioner-votes">${data.data[i].votes}</span> <br> <i class="fa fa-caret-down" id="downvote"></i>
-            </div>
-            
+          result += `<div class="questioner-message">            
             <div class="questioner-message-name">
                 <h3>${data.data[i].createdBy}</h3>
                 <p>${data.data[i].createdOn}</p>
             </div>
             <div class="questioner-message-body">
-                <p><strong>${data.data[i].topic}</strong></p>
+                <a href="comment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
                 <p>
                     ${data.data[i].body}
                 </p>
@@ -94,7 +88,14 @@ window.onload = function getQuestions(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        if (JSON.stringify(dataOne.error).includes('expired')) {
+          window.alert(JSON.stringify('Sorry this session has expired. Please log in to continue'));
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          window.alert(JSON.stringify(dataOne.error));
+        }
       }
     });
 };
