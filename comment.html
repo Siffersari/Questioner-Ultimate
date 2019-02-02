@@ -90,52 +90,20 @@
             <li><a><i class="fa fa-caret-down" id="downvote"></i></a></li>
             <hr class="questioner-rule partial">
         </div>
-        
+
         <div id="questiondivision">
 
         </div>
 
         <div class="questioner-content">
+            <p class="top-response" id="commentresp"></p>
             <hr class="questioner-rule partial">
             <h2 class="questioner-center main-content-heading">COMMENTS</h2>
             <hr class="questioner-rule partial">
         </div>
 
-        <div class="questioner-message">
-            <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
-            <div class="questioner-message-name">
-                <h3>Wayne Rooney</h3>
+        <div id="commentdivision">
 
-            </div>
-            <div class="questioner-message-body" id="questioner-comment">
-
-                <p>
-                    What more can be added to the list of activities to be performed?
-                </p>
-
-                <div class="questioner-comment-time">
-                    <p>9 hours ago</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="questioner-message">
-
-            <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
-            <div class="questioner-message-name">
-                <h3>Zinedine Zidane</h3>
-
-            </div>
-            <div class="questioner-message-body" id="questioner-comment">
-
-                <p>
-                    I am not sure yet! Maybe Zidane made football culture news
-                </p>
-                <div class="questioner-comment-time">
-                    <p>Yesterday</p>
-                </div>
-            </div>
         </div>
 
         <div class="questioner-content">
@@ -149,11 +117,12 @@
                 <h3>Comment </h3>
                 <div class="questioner-textbox">
 
-                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="5" placeholder="Type your comment here"></textarea>
+                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="5" placeholder="Type your comment here"
+                        id="commentbody"></textarea>
                     <br>
                 </div>
                 <br>
-                <button class="questioner-btn-transround">COMMENT</button>
+                <button class="questioner-btn-transround" id="postcomment">COMMENT</button>
             </form>
         </div>
 
@@ -170,6 +139,7 @@
 
     <script src="js/vote.js"></script>
     <script src="js/specificquestion.js"></script>
+    <script src="js/comment.js"></script>
 </body>
 
 </html>
