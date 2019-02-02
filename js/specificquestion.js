@@ -46,4 +46,55 @@ window.onload = function getQuestion(event) {
         window.alert(JSON.stringify(dataOne.error));
       }
     });
+
+  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/comments', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
+  })
+    .then(async (commentresponse) => {
+      if (commentresponse.ok) {
+        const commentdata = await commentresponse.json();
+
+        const numberComments = commentdata.data.length;
+        if (numberComments === 0) {
+          document.getElementById('questiondivision').innerHTML = 'No comments posted yet';
+        }
+        let i = numberComments - 1;
+        let result = ' ';
+        while (i >= 0) {
+          result += `<div class="questioner-message">
+          <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
+          <div class="questioner-message-name">
+              <h3>${commentdata.data[i].createdBy}</h3>
+
+          </div>
+          <div class="questioner-message-body" id="questioner-comment">
+
+              <p>
+                  ${commentdata.data[i].comment[0]}
+              </p>
+
+              <div class="questioner-comment-time">
+                  <p>${commentdata.data[i].createdOn}</p>
+              </div>
+
+          </div>
+      </div>`;
+          i--;
+        }
+        document.getElementById('commentdivision').innerHTML = result;
+      }
+      if (commentresponse.status !== 200) {
+        const dataOne = await commentresponse.json();
+        if (JSON.stringify(dataOne.error).includes('expired')) {
+          window.alert(JSON.stringify('Sorry this session has expired. Please log in to continue'));
+
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          window.alert(JSON.stringify(dataOne.error));
+        }
+      }
+    });
 };
