@@ -71,14 +71,14 @@
     margin: 5em 2em;  
 }
 
-#questioner-comment-head {
+.questioner-comment-head {
     font-size: 2em;
     padding-bottom: 5px;
     border-bottom: 3px solid #A63569;
     border-radius: 5%;  
 }
 
-#questioner-comment-head:hover {
+.questioner-comment-head:hover {
     color: #A63569;
 }
 
@@ -100,6 +100,28 @@
 
 #questioner-scheduled {
     border-bottom: 1px solid #cccccc;
+}
+
+.questioner-inline {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.questioner-inline li{
+    display: inline-flex;
+    padding: 10px 60px;
+    
+}
+
+.questioner-inline li a i {
+    font-size: 35px;
+    color: #cccccc;
+}
+
+.questioner-inline li a i:hover {
+    color: #A63569;
+    font-size: 40px;
 }
 
 @media screen and (max-width: 800px) {

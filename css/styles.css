@@ -269,6 +269,16 @@ input:focus:valid {
     background-color: #A63569;
     color: white;
 }
+.black {
+    color: black !important;
+    opacity: 0.6;
+    font-weight: bold;
+    font-size: 26px !important;
+}
+.black:hover {
+    opacity: 1;
+    font-size: 40px !important;
+}
 
 
 
