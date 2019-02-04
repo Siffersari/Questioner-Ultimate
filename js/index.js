@@ -14,18 +14,39 @@ function signUp(event) {
       username: document.getElementById('signuname').value,
       email: document.getElementById('signmail').value,
       password: document.getElementById('signpwd').value,
+      confirmPass: document.getElementById('signcpwd').value,
       phoneNumber: document.getElementById('signno').value,
     }),
   })
     .then(async (resp) => {
+      const responseMessage = document.getElementById('signresp');
+
       if (resp.ok) {
         const data = await resp.json();
 
-        document.getElementById('signresp').innerHTML = JSON.stringify(data.data[0].message);
+        responseMessage.innerHTML = JSON.stringify(data.data[0].message);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
+
+
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000);
       }
       if (resp.status !== 201) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+
+        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 }
