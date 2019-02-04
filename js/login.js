@@ -21,7 +21,15 @@ function logIn(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        const responseMessage = document.getElementById('loginresp');
+
+        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 }
