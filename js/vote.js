@@ -1,5 +1,6 @@
 const upvote = document.getElementById('upvote');
 const downvote = document.getElementById('downvote');
+const responseMessage = document.getElementById('response');
 
 function upvoteQuestion(event) {
   event.preventDefault();
@@ -18,7 +19,13 @@ function upvoteQuestion(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 }
@@ -39,7 +46,13 @@ function downvoteQuestion(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 }
