@@ -47,7 +47,7 @@ window.onload = function getQuestion(event) {
       }
     });
 
-  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/comments', {
+  fetch(`https://questioner-apiv2-siffersari.herokuapp.com/api/v2/questions/${questionId}/comments`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
   })
@@ -55,14 +55,18 @@ window.onload = function getQuestion(event) {
       if (commentresponse.ok) {
         const commentdata = await commentresponse.json();
 
-        const numberComments = commentdata.data.length;
-        if (numberComments === 0) {
-          document.getElementById('questiondivision').innerHTML = 'No comments posted yet';
+        let numberComments = commentdata.data.length;
+
+        if (typeof commentdata.data === 'string') {
+          numberComments = 0;
         }
-        let i = numberComments - 1;
-        let result = ' ';
-        while (i >= 0) {
-          result += `<div class="questioner-message">
+        if (numberComments === 0) {
+          document.getElementById('commentdivision').innerHTML = '<h2 class="top-response"> No comments yet</h2>';
+        } else {
+          let i = numberComments - 1;
+          let result = ' ';
+          while (i >= 0) {
+            result += `<div class="questioner-message">
           <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
           <div class="questioner-message-name">
               <h3>${commentdata.data[i].createdBy}</h3>
@@ -80,20 +84,33 @@ window.onload = function getQuestion(event) {
 
           </div>
       </div>`;
-          i--;
+            i--;
+          }
+          document.getElementById('commentdivision').innerHTML = result;
         }
-        document.getElementById('commentdivision').innerHTML = result;
       }
       if (commentresponse.status !== 200) {
+        const responseMessage = document.getElementById('response');
         const dataOne = await commentresponse.json();
         if (JSON.stringify(dataOne.error).includes('expired')) {
-          window.alert(JSON.stringify('Sorry this session has expired. Please log in to continue'));
+          responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
 
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
           setTimeout(() => {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          window.alert(JSON.stringify(dataOne.error));
+          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
         }
       }
     });

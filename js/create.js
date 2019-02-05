@@ -14,16 +14,22 @@ function createMeetup(event) {
     body: JSON.stringify({
       location: document.getElementById('createloc').value,
       happeningOn: happening,
-      tags: document.getElementById('createtags').value,
       topic: document.getElementById('createabout').value,
-
+      tags: document.getElementById('createtags').value,
     }),
   })
     .then(async (resp) => {
+      const responseMessage = document.getElementById('response');
       if (resp.ok) {
         const data = await resp.json();
-        console.log(data);
-        document.getElementById('cmeetresp').innerHTML = 'Meetup created successfully';
+
+        responseMessage.innerHTML = 'Meetup created successfully';
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
 
         setTimeout(() => {
           window.location.href = 'meetups.html';
@@ -31,7 +37,26 @@ function createMeetup(event) {
       }
       if (resp.status !== 201) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        if (JSON.stringify(dataOne.error).includes('expired')) {
+          responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
+        }
       }
     });
 }

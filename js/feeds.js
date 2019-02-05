@@ -24,7 +24,7 @@ window.onload = function getTopQuestions(event) {
                   <p>${data.data[i].createdOn}</p>
               </div>
               <div class="questioner-message-body">
-              <h2> <a href="#" class="questioner-list-anchor">${data.data[i].meetupTopic}</a></h2>
+              <h2> <a href="question.html?mi=${data.data[i].meetup}" class="questioner-list-anchor">${data.data[i].meetupTopic}</a></h2>
                   <a href="comment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
                   <p>
                       ${data.data[i].body}
@@ -41,14 +41,27 @@ window.onload = function getTopQuestions(event) {
         }
       }
       if (resp.status !== 200) {
+        const responseMessage = document.getElementById('response');
         const dataOne = await resp.json();
         if (JSON.stringify(dataOne.error).includes('expired')) {
-          window.alert(JSON.stringify('Sorry this session has expired. Please log in to continue'));
+          responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
           setTimeout(() => {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          window.alert(JSON.stringify(dataOne.error));
+          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
         }
       }
     });

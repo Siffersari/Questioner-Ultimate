@@ -16,15 +16,29 @@ function postComment(event) {
     }),
   })
     .then(async (resp) => {
+      const responseMessage = document.getElementById('response');
       if (resp.ok) {
-        document.getElementById('commentresp').innerText = 'Comment posted successfully';
+        responseMessage.innerText = 'Comment posted successfully';
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
+
         setTimeout(() => {
           window.location.href = `comment.html?qi=${questionId}`;
         }, 2000);
       }
       if (resp.status !== 201) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 }

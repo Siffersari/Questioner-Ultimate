@@ -30,6 +30,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 a:focus {
     outline: 0;
     border: 0;

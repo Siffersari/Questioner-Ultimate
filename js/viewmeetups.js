@@ -7,6 +7,7 @@ window.onload = function getMeetups(event) {
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
   })
     .then(async (resp) => {
+      const responseMessage = document.getElementById('response');
       if (resp.ok) {
         const data = await resp.json();
         const numberMeetups = data.data.length;
@@ -36,7 +37,7 @@ window.onload = function getMeetups(event) {
 
           <div class="questioner-tabs-item">
               <br>
-              <h3><a href="delete.html" class="questioner-anchor-button"> DELETE </a></h3>
+              <h3><a href="delete.html?mi=${data.data[i].id}" class="questioner-anchor-button"> DELETE </a></h3>
               
               </div>
       </div>
@@ -60,7 +61,26 @@ window.onload = function getMeetups(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        window.alert(JSON.stringify(dataOne.error));
+        if (JSON.stringify(dataOne.error).includes('expired')) {
+          responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+
+          responseMessage.className += ' show';
+
+          setTimeout(() => {
+            responseMessage.className = responseMessage.className.replace('show', '');
+          }, 3000);
+        }
       }
     });
 };
