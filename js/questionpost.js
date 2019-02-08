@@ -153,7 +153,7 @@ window.onload = function getDetails(event) {
           if (resp.status !== 200) {
             const responseMessage = document.getElementById('response');
             const dataOne = await resp.json();
-            if (JSON.stringify(dataOne.error).includes('expired')) {
+            if (JSON.stringify(dataOne.error).includes('expired') || JSON.stringify(dataOne.error).includes('valid')) {
               responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
 
               responseMessage.className += ' show';

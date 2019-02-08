@@ -30,7 +30,7 @@ window.onload = function getMeetups(event) {
                   <div class="questioner-card">
                       <span class="questioner-card-category">${data.data[i].createdBy}</span>
 
-                      <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small questioner-card-image">
+                      <img src="https://placehold.it/50x50" alt="" class="questioner-avatar-small questioner-card-image">
                   </div>
                   <div class="questioner-card-description">
                       <h2 class="pad-left-half"><a href="details.html" class="questioner-explore-card">${data.data[i].topic}</a></h2>
@@ -56,7 +56,7 @@ window.onload = function getMeetups(event) {
         const responseMessage = document.getElementById('response');
         const dataOne = await resp.json();
 
-        if (JSON.stringify(dataOne.error).includes('expired')) {
+        if (JSON.stringify(dataOne.error).includes('expired') || JSON.stringify(dataOne.error).includes('valid')) {
           responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
 
           responseMessage.className += ' show';
