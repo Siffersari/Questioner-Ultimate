@@ -1,5 +1,66 @@
+
+
+let start = 0;
+
+let finish = 6;
+
+const pagearray = [];
+
+
 window.onload = function getTopQuestions(event) {
   event.preventDefault();
+
+  const path = window.location.pathname;
+
+  localStorage.setItem('currentPage', path.split('/').pop());
+
+  const currentPage = localStorage.getItem('currentPage');
+
+  const prevPage = localStorage.getItem('prevPage');
+
+  if (currentPage !== prevPage) {
+    localStorage.setItem('start', 0);
+
+    localStorage.setItem('finish', 6);
+  }
+
+  function getNext() {
+    start = finish;
+
+    finish = Number(finish);
+
+    finish += 6;
+
+    if (start < 0 || finish < 0) {
+      start = 0;
+      finish = 6;
+    }
+
+
+    localStorage.setItem('start', start);
+    localStorage.setItem('finish', finish);
+
+    localStorage.setItem('prevPage', path.split('/').pop());
+
+
+    window.location.reload();
+  }
+
+  function getPrev() {
+    start = Number(start) - 6;
+    finish = Number(finish) - 6;
+
+    if (start < 0 || finish < 0) {
+      start = 0;
+      finish = 6;
+    }
+    localStorage.setItem('start', start);
+    localStorage.setItem('finish', finish);
+
+
+    window.location.reload();
+  }
+
 
   fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/questions', {
     method: 'GET',
@@ -16,9 +77,9 @@ window.onload = function getTopQuestions(event) {
           paginationdiv.style.display = 'none';
         } else {
           let i = 0;
-          let result = ' ';
+
           while (i < numberQuestions) {
-            result += `<div class="questioner-message">            
+            pagearray.push(`<div class="questioner-message">            
               <div class="questioner-message-name">
                   <h3>${data.data[i].createdBy}</h3>
                   <p>${data.data[i].createdOn}</p>
@@ -34,10 +95,10 @@ window.onload = function getTopQuestions(event) {
                     <span class="questioner-comments">70</span> <i class="fa fa-comment"></i>
                 </div>
               </div>
-              </div>`;
-            i++;
+              </div>`);
+
+            i += 1;
           }
-          document.getElementById('questiondivision').innerHTML = result;
         }
       }
       if (resp.status !== 200) {
@@ -64,5 +125,32 @@ window.onload = function getTopQuestions(event) {
           }, 3000);
         }
       }
+      start = Number(localStorage.getItem('start'));
+
+      finish = Number(localStorage.getItem('finish'));
+
+
+      const displaycurr = pagearray.slice(start, finish);
+
+
+      if (start === 0) {
+        document.getElementById('prev').style.display = 'none';
+      }
+
+      if (displaycurr.length === 0) {
+        document.getElementById('questiondivision').innerHTML = '<h2 class="top-response"> Nothing to display</h2>';
+        const nextselect = document.getElementById('next');
+        nextselect.style.display = 'none';
+      } else {
+        const finalres = displaycurr.join(' ');
+
+
+        document.getElementById('questiondivision').innerHTML = finalres;
+      }
     });
+
+
+  document.getElementById('next').addEventListener('click', getNext);
+
+  document.getElementById('prev').addEventListener('click', getPrev);
 };
