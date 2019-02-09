@@ -1,6 +1,72 @@
+let start = 0;
+
+let finish = 6;
+
+const pagearray = [];
 
 window.onload = function getMeetups(event) {
   event.preventDefault();
+
+  const path = window.location.pathname;
+
+  localStorage.setItem('currentPage', path.split('/').pop());
+
+  const currentPage = localStorage.getItem('currentPage');
+
+  const prevPage = localStorage.getItem('prevPage');
+
+  console.log(currentPage, prevPage);
+
+  if (currentPage !== prevPage) {
+    console.log('this here');
+    localStorage.setItem('start', 0);
+
+    localStorage.setItem('finish', 6);
+  } else {
+    console.log(currentPage, prevPage);
+  }
+
+  function getNext() {
+    start = finish;
+
+    finish = Number(finish);
+
+    finish += 6;
+
+    if (start < 0 || finish < 0) {
+      start = 0;
+      finish = 6;
+    }
+
+    console.log([start, finish]);
+
+    localStorage.setItem('start', start);
+    localStorage.setItem('finish', finish);
+
+    localStorage.setItem('prevPage', path.split('/').pop());
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
+  function getPrev() {
+    start = Number(start) - 6;
+    finish = Number(finish) - 6;
+
+    if (start < 0 || finish < 0) {
+      start = 0;
+      finish = 6;
+    }
+    console.log([start, finish, 'Prev']);
+    localStorage.setItem('start', start);
+    localStorage.setItem('finish', finish);
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
 
   fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/upcoming', {
     method: 'GET',
@@ -17,9 +83,9 @@ window.onload = function getMeetups(event) {
           paginationdiv.style.display = 'none';
         }
         let i = 0;
-        let result = ' ';
+
         while (i < numberMeetups) {
-          result += `<div class="questioner-tabs">
+          pagearray.push(`<div class="questioner-tabs">
           <div class="questioner-tabs-item active">
               <h3>0</h3>
               <p>Attending</p>
@@ -53,11 +119,9 @@ window.onload = function getMeetups(event) {
 
           </div>
 
-      </div>`;
+      </div>`);
           i++;
         }
-
-        document.getElementById('adminmeetsection').innerHTML = result;
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
@@ -82,5 +146,32 @@ window.onload = function getMeetups(event) {
           }, 3000);
         }
       }
+      start = Number(localStorage.getItem('start'));
+
+      finish = Number(localStorage.getItem('finish'));
+
+      console.log(start, finish);
+
+      const displaycurr = pagearray.slice(start, finish);
+
+      console.log(displaycurr.length);
+
+      if (start === 0) {
+        document.getElementById('prev').style.display = 'none';
+      }
+
+      if (displaycurr.length === 0) {
+        document.getElementById('adminmeetsection').innerHTML = '<h2 class="top-response"> Nothing to display</h2>';
+        const nextselect = document.getElementById('next');
+        nextselect.style.display = 'none';
+      } else {
+        const finalres = displaycurr.join(' ');
+
+        document.getElementById('adminmeetsection').innerHTML = finalres;
+      }
     });
+
+  document.getElementById('next').addEventListener('click', getNext);
+
+  document.getElementById('prev').addEventListener('click', getPrev);
 };
