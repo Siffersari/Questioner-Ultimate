@@ -9,6 +9,7 @@ window.onload = function getQuestion(event) {
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
   })
     .then(async (response) => {
+      const responseMessage = document.getElementById('response');
       if (response.ok) {
         const questiondata = await response.json();
 
@@ -43,7 +44,13 @@ window.onload = function getQuestion(event) {
       }
       if (response.status !== 200) {
         const dataOne = await response.json();
-        window.alert(JSON.stringify(dataOne.error));
+        responseMessage.innerHTML = dataOne.error;
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
       }
     });
 
