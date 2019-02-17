@@ -10,7 +10,12 @@
     border-bottom: none;
   }
   .questioner-message-body {
-    flex-grow: 1;
+    padding-left: 20px;
+    color: rgba(0,0,0,0.4);
+    max-width: 25em;
+    font-size: 0.97em !important;
+    max-height: 20em;
+    overflow: auto;
   }
   .questioner-message-name {
     padding-left: 10px;
@@ -26,22 +31,16 @@
     opacity: 0.6;
     margin-top: 5px;
   }
-  .questioner-message-body {
-    padding-left: 10px;
-    font-size: 13px;
-    color: rgba(0,0,0,0.7);
+
+  .questioner-message-body p {
+    margin: 6px 0;
   }
-  .questioner-message-body {
-    padding-left: 20px;
-    color: rgba(0,0,0,0.4);
-  }
+
   .questioner-message-body strong{
     color: rgba(0,0,0,0.9);
     color: rgba(0,0,0,0.9);
   }
-  .questioner-message-body p {
-    margin: 6px 0;
-  }
+ 
   .questioner-message-status {
     font-size: 14px;
     font-weight: bold;
