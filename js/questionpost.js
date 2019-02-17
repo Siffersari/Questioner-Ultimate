@@ -34,7 +34,7 @@ function postQuestion(event) {
       }
       if (response.status !== 201) {
         const dataOne = await response.json();
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 
@@ -133,8 +133,8 @@ window.onload = function getDetails(event) {
           while (i < numberQuestions) {
             result += `<div class="questioner-message">            
             <div class="questioner-message-name">
-                <h3>${data.data[i].createdBy}</h3>
-                <p>${data.data[i].createdOn}</p>
+                <h3>${data.data[i].createdBy}</h3><br>
+                <p class="marginless">${data.data[i].createdOn}</p>
             </div>
             <div class="questioner-message-body">
                 <a href="comment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
