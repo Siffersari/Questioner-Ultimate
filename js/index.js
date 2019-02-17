@@ -24,7 +24,7 @@ function signUp(event) {
       if (resp.ok) {
         const data = await resp.json();
 
-        responseMessage.innerHTML = JSON.stringify(data.data[0].message);
+        responseMessage.innerHTML = data.data[0].message;
 
         responseMessage.className += ' show';
 
@@ -40,7 +40,7 @@ function signUp(event) {
       if (resp.status !== 201) {
         const dataOne = await resp.json();
 
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 

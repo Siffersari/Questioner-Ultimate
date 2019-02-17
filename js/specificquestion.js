@@ -25,8 +25,8 @@ window.onload = function getQuestion(event) {
         result += `
               <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small" id="message-avatar">
               <div class="questioner-message-name">
-                  <h3>${questiondata.data[0].user}</h3>
-                  <p>${questiondata.data[0].createdOn}</p>
+                  <h3>${questiondata.data[0].user}</h3><br>
+                  <p class="marginless">${questiondata.data[0].createdOn}</p>
               </div>
               <div class="questioner-message-body">
                   <p><strong>${questiondata.data[0].title}</strong></p>
@@ -111,7 +111,7 @@ window.onload = function getQuestion(event) {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+          responseMessage.innerHTML = dataOne.error;
 
           responseMessage.className += ' show';
 

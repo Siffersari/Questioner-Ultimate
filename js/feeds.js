@@ -81,8 +81,8 @@ window.onload = function getTopQuestions(event) {
           while (i < numberQuestions) {
             pagearray.push(`<div class="questioner-message">            
               <div class="questioner-message-name">
-                  <h3>${data.data[i].createdBy}</h3>
-                  <p>${data.data[i].createdOn}</p>
+                  <h3>${data.data[i].createdBy}</h3><br>
+                  <p class="marginless">${data.data[i].createdOn}</p>
               </div>
               <div class="questioner-message-body">
               <h2> <a href="question.html?mi=${data.data[i].meetup}" class="questioner-list-anchor">${data.data[i].meetupTopic}</a></h2>
@@ -116,7 +116,7 @@ window.onload = function getTopQuestions(event) {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+          responseMessage.innerHTML = dataOne.error;
 
           responseMessage.className += ' show';
 

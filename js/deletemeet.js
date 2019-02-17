@@ -52,7 +52,7 @@ window.onload = function getMeetup(event) {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+          responseMessage.innerHTML = dataOne.error;
 
           responseMessage.className += ' show';
 
@@ -89,7 +89,7 @@ function deleteMeetup(meetupId) {
       if (resp.status !== 200) {
         const dataOne = await resp.json();
 
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 

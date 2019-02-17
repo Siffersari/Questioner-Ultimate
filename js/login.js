@@ -23,7 +23,7 @@ function logIn(event) {
         const dataOne = await resp.json();
         const responseMessage = document.getElementById('loginresp');
 
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 

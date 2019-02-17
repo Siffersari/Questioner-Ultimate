@@ -32,7 +32,7 @@ function postComment(event) {
       }
       if (resp.status !== 201) {
         const dataOne = await resp.json();
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 
