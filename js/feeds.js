@@ -116,7 +116,7 @@ window.onload = function getTopQuestions(event) {
             window.location.href = 'login.html';
           }, 2000);
         } else {
-          responseMessage.innerHTML = JSON.stringify(dataOne.error);
+          responseMessage.innerHTML = dataOne.error;
 
           responseMessage.className += ' show';
 

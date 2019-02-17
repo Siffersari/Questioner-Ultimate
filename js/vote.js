@@ -19,7 +19,7 @@ function upvoteQuestion(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 
@@ -46,7 +46,7 @@ function downvoteQuestion(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 

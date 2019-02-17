@@ -102,7 +102,7 @@ window.onload = function getDetails(event) {
       if (resp.status !== 200) {
         const responseMessage = document.getElementById('response');
         const dataOne = await resp.json();
-        responseMessage.innerHTML = JSON.stringify(dataOne.error);
+        responseMessage.innerHTML = dataOne.error;
 
         responseMessage.className += ' show';
 
@@ -165,7 +165,7 @@ window.onload = function getDetails(event) {
                 window.location.href = 'login.html';
               }, 2000);
             } else {
-              responseMessage.innerHTML = JSON.stringify(dataOne.error);
+              responseMessage.innerHTML = dataOne.error;
 
               responseMessage.className += ' show';
 

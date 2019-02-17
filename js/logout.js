@@ -25,7 +25,7 @@ function logoutUser(event) {
       }
       if (resp.status !== 200) {
         const dataOne = await resp.json();
-        document.getElementById('response').innerHTML = JSON.stringify(dataOne.error);
+        document.getElementById('response').innerHTML = dataOne.error;
 
         document.getElementById('response').className += ' show';
 
