@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner - Dashboard</title>
+    <title>Questioner - Scheduled Meetups</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -18,7 +18,7 @@
 
             <!-- Right Nav Items-->
             <div class="questioner-navbar-right" id="topnav">
-                <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
+                <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
 
 
                 <!-- Dashboard -->
@@ -29,6 +29,7 @@
                             <li><a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
                                     Meetup</a></li>
                             <li><a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a></li>
+
                             <li><a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a></li>
                             <li><a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
                                     Questions</a></li>
@@ -49,10 +50,11 @@
                 <div class="questioner-dropdown" id="bars">
                     <i class="questioner-dropdown-icon fa fa-bars"></i>
                     <div class="questioner-dropdown-menu">
-                        <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
+                        <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
                         <a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
                             Meetup</a>
                         <a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a>
+                        <a href="explore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
                         <a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
                         <a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
                             Questions</a>
@@ -64,15 +66,14 @@
         </div>
     </div>
 
-
     <div class="questioner-container fluid">
-        <div class="questioner-bar" id="response"></div>
-        <h1 class="questioner-center main-heading">TOP MEETUP QUESTIONS</h1>
+        <h1 class="questioner-center main-heading">SCHEDULED MEETUPS</h1>
         <hr class="questioner-rule semi">
-        <div id="questiondivision"></div>
+        
+        <div id="adminmeetsection">
 
+        </div>
     </div>
-
 
     <div class="questioner-pagination" id="viewpagination">
         <div class="questioner-message">
@@ -81,7 +82,6 @@
             </div>
         </div>
     </div>
-
 
     <footer class="questioner-footer">
         <p>&copy; Questioner 2019. All Rights Reserved.</p>
@@ -93,7 +93,7 @@
     </footer>
 
 
-    <script src="js/feeds.js"></script>
+    <script src="js/scheduled.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

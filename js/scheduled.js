@@ -68,8 +68,8 @@ window.onload = function getMeetups(event) {
       const responseMessage = document.getElementById('response');
       if (resp.ok) {
         const data = await resp.json();
-        let numberMeetups = data.data[0].createdMeets.length;
-        if (numberMeetups === 0 || (data.data[0].createdMeets).includes('None')) {
+        let numberMeetups = data.data[0].scheduledMeets.length;
+        if (numberMeetups === 0 || (data.data[0].scheduledMeets).includes('None')) {
           document.getElementById('adminmeetsview').innerHTML = 'No meetups found yet';
           const paginationdiv = document.getElementById('viewpagination');
           paginationdiv.style.display = 'none';
@@ -78,40 +78,24 @@ window.onload = function getMeetups(event) {
         let i = numberMeetups - 1;
 
         while (i >= 0) {
-          pagearray.push(`<div class="questioner-tabs">
-          <div class="questioner-tabs-item active">
-              <h3>0</h3>
-              <p>Attending</p>
-          </div>
-          <div class="questioner-tabs-item">
-              <h3>0</h3>
-              <p>Questions</p>
+          pagearray.push(`<div class="questioner-meetup-container">
 
-          </div>
-          <div class="questioner-tabs-item">
-              <h3>0</h3>
-              <p>Comments</p>
+          <div class="questioner-product" id="questioner-scheduled">
 
-          </div>
+              <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
+              <div class="questioner-product-description">
+                  <h3> <a href="question.html?mi=${data.data[0].scheduledMeets[i][0][0]}" class="questioner-list-anchor">${data.data[0].scheduledMeets[i][0][2]}</a></h3>
+                  <p></p>
+                  <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].scheduledMeets[i][0][4]}</span>
+                  <br><br>
+                  <span class="questioner-span"> ${data.data[0].scheduledMeets[i][0][3]}</span>
 
-          <div class="questioner-tabs-item">
-              <br>
-              <h3><a href="delete.html?mi=${data.data[0].createdMeets[i][0]}" class="questioner-anchor-button"> DELETE </a></h3>
-              
               </div>
-      </div>
-          <div class="questioner-product">
+              <div class="questioner-product-upvotes">
 
-          <img src="images/meetup150.jpeg" alt="" class="questioner-product-image">
-          <div class="questioner-product-description">
-              <h3> <a href="#" class="questioner-list-anchor">${data.data[0].createdMeets[i][2]}</a></h3>
-              <p class="questioner-tags">${data.data[0].createdMeets[i][6]}</p>
-              <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].createdMeets[i][4]} </span>
-              <br><br>
-              <span class="questioner-span"> ${data.data[0].createdMeets[i][3]}</span>
+              </div>
 
           </div>
-
       </div>`);
           i -= 1;
         }
