@@ -60,7 +60,7 @@ window.onload = function getMeetups(event) {
   }
 
 
-  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/upcoming', {
+  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/users', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
   })
@@ -68,15 +68,16 @@ window.onload = function getMeetups(event) {
       const responseMessage = document.getElementById('response');
       if (resp.ok) {
         const data = await resp.json();
-        const numberMeetups = data.data.length;
-        if (numberMeetups === 0) {
+        let numberMeetups = data.data[0].createdMeets.length;
+        if (numberMeetups === 0 || (data.data[0].createdMeets).includes('None')) {
           document.getElementById('adminmeetsview').innerHTML = 'No meetups found yet';
           const paginationdiv = document.getElementById('viewpagination');
           paginationdiv.style.display = 'none';
+          numberMeetups = 0;
         }
-        let i = 0;
+        let i = numberMeetups - 1;
 
-        while (i < numberMeetups) {
+        while (i >= 0) {
           pagearray.push(`<div class="questioner-tabs">
           <div class="questioner-tabs-item active">
               <h3>0</h3>
@@ -95,7 +96,7 @@ window.onload = function getMeetups(event) {
 
           <div class="questioner-tabs-item">
               <br>
-              <h3><a href="delete.html?mi=${data.data[i].id}" class="questioner-anchor-button"> DELETE </a></h3>
+              <h3><a href="delete.html?mi=${data.data[0].createdMeets[i][0]}" class="questioner-anchor-button"> DELETE </a></h3>
               
               </div>
       </div>
@@ -103,16 +104,16 @@ window.onload = function getMeetups(event) {
 
           <img src="images/meetup150.jpeg" alt="" class="questioner-product-image">
           <div class="questioner-product-description">
-              <h3> <a href="#" class="questioner-list-anchor">${data.data[i].topic}</a></h3>
-              <p class="questioner-tags">${data.data[i].tags}</p>
-              <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[i].location} </span>
+              <h3> <a href="#" class="questioner-list-anchor">${data.data[0].createdMeets[i][2]}</a></h3>
+              <p class="questioner-tags">${data.data[0].createdMeets[i][6]}</p>
+              <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].createdMeets[i][4]} </span>
               <br><br>
-              <span class="questioner-span"> ${data.data[i].happeningOn}</span>
+              <span class="questioner-span"> ${data.data[0].createdMeets[i][3]}</span>
 
           </div>
 
       </div>`);
-          i += 1;
+          i -= 1;
         }
       }
       if (resp.status !== 200) {
