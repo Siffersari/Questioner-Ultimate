@@ -1,0 +1,53 @@
+{
+  "name": "Combined",
+  "version": "1.0.0",
+  "description": "Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --detectOpenHandles",
+    "coveralls": "jest --coverage && cat coverage/lcov.info | coveralls"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siffersari/Questioner-Ultimate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Siffersari/Questioner-Ultimate/issues"
+  },
+  "homepage": "https://github.com/Siffersari/Questioner-Ultimate#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-block-scoping": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-block-scoping": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "faker": "^4.1.0",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0",
+    "puppeteer": "^1.12.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4"
+  }
+}
