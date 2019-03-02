@@ -1,5 +1,3 @@
-const postquestionbtn = document.getElementById('postquestion');
-
 function attendMeetup(id) {
   fetch(`https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/${id}/rsvps`, {
     method: 'POST',
@@ -34,6 +32,8 @@ function attendMeetup(id) {
       }
     });
 }
+
+const postquestionbtn = document.getElementById('postquestion');
 
 
 function postQuestion(event) {
@@ -102,7 +102,7 @@ window.onload = function getDetails(event) {
 
         <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
         <div class="questioner-product-description">
-            <h3> <a href=# class="questioner-list-anchor" id="meetuptopic">${data.data[0].topic}</a></h3>
+            <h3> <a href="#" class="questioner-list-anchor" id="meetuptopic">${data.data[0].topic}</a></h3>
             <p></p>
             <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].location}</span>
             <br><br>
@@ -151,16 +151,16 @@ window.onload = function getDetails(event) {
         if (numberQuestions === 0) {
           document.getElementById('questiondivision').innerHTML = '<h2 class="top-response">No questions asked yet</h2>';
         } else {
-          let i = 0;
+          let i = numberQuestions - 1;
           let result = ' ';
-          while (i < numberQuestions) {
+          while (i >= 0) {
             result += `<div class="questioner-message">            
             <div class="questioner-message-name">
                 <h3>${data.data[i].createdBy}</h3><br>
                 <p class="marginless">${data.data[i].createdOn}</p>
             </div>
             <div class="questioner-message-body">
-                <a href="comment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
+                <a href="admincomment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
                 <p>
                     ${data.data[i].body}
                 </p>
@@ -169,7 +169,7 @@ window.onload = function getDetails(event) {
                 </div>
             </div>
             </div>`;
-            i++;
+            i -= 1;
             document.getElementById('questiondivision').innerHTML = result;
           }
           if (resp.status !== 200) {

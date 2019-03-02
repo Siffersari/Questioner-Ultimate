@@ -1,10 +1,13 @@
+
+
 let start = 0;
 
 let finish = 6;
 
 const pagearray = [];
 
-window.onload = function getMeetups(event) {
+
+window.onload = function getTopQuestions(event) {
   event.preventDefault();
 
   const path = window.location.pathname;
@@ -14,7 +17,6 @@ window.onload = function getMeetups(event) {
   const currentPage = localStorage.getItem('currentPage');
 
   const prevPage = localStorage.getItem('prevPage');
-
 
   if (currentPage !== prevPage) {
     localStorage.setItem('start', 0);
@@ -52,55 +54,54 @@ window.onload = function getMeetups(event) {
       start = 0;
       finish = 6;
     }
-
     localStorage.setItem('start', start);
     localStorage.setItem('finish', finish);
+
 
     window.location.reload();
   }
 
 
-  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/users', {
+  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/questions', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
   })
     .then(async (resp) => {
-      const responseMessage = document.getElementById('response');
       if (resp.ok) {
         const data = await resp.json();
-        let numberMeetups = data.data[0].scheduledMeets.length;
-        if (numberMeetups === 0 || (data.data[0].scheduledMeets).includes('None')) {
-          document.getElementById('adminmeetsection').innerHTML = 'No meetups found yet';
+
+        const numberQuestions = data.data.length;
+        if (numberQuestions === 0) {
+          document.getElementById('questiondivision').innerHTML = '<h2 class="top-response"> No questions asked yet</h2>';
           const paginationdiv = document.getElementById('viewpagination');
           paginationdiv.style.display = 'none';
-          numberMeetups = 0;
-        }
-        let i = numberMeetups - 1;
+        } else {
+          let i = 0;
 
-        while (i >= 0) {
-          pagearray.push(`<div class="questioner-meetup-container">
-
-          <div class="questioner-product" id="questioner-scheduled">
-
-              <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
-              <div class="questioner-product-description">
-                  <h3> <a href="question.html?mi=${data.data[0].scheduledMeets[i][0][0]}" class="questioner-list-anchor">${data.data[0].scheduledMeets[i][0][2]}</a></h3>
-                  <p></p>
-                  <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].scheduledMeets[i][0][4]}</span>
-                  <br><br>
-                  <span class="questioner-span"> ${data.data[0].scheduledMeets[i][0][3]}</span>
-
+          while (i < numberQuestions) {
+            pagearray.push(`<div class="questioner-message">            
+              <div class="questioner-message-name">
+                  <h3>${data.data[i].createdBy}</h3><br>
+                  <p class="marginless">${data.data[i].createdOn}</p>
               </div>
-              <div class="questioner-product-upvotes">
-
+              <div class="questioner-message-body">
+              <h2> <a href="adminquestion.html?mi=${data.data[i].meetup}" class="questioner-list-anchor">${data.data[i].meetupTopic}</a></h2>
+                  <a href="admincomment.html?qi=${data.data[i].id}"><strong>${data.data[i].title}</strong></a>
+                  <p>
+                      ${data.data[i].body}
+                  </p>
+                  <div class="questioner-question-accessories">
+                    <span>${data.data[i].votes}</span> <i class="fa fa-thumbs-up questioner-votes"></i>
+                </div>
               </div>
+              </div>`);
 
-          </div>
-      </div>`);
-          i -= 1;
+            i += 1;
+          }
         }
       }
       if (resp.status !== 200) {
+        const responseMessage = document.getElementById('response');
         const dataOne = await resp.json();
         if (JSON.stringify(dataOne.error).includes('expired') || JSON.stringify(dataOne.error).includes('valid')) {
           responseMessage.innerHTML = 'Sorry this session has expired. Please log in to continue';
@@ -136,15 +137,17 @@ window.onload = function getMeetups(event) {
       }
 
       if (displaycurr.length === 0) {
-        document.getElementById('adminmeetsection').innerHTML = '<h2 class="top-response"> Nothing to display</h2>';
+        document.getElementById('questiondivision').innerHTML = '<h2 class="top-response"> Nothing to display</h2>';
         const nextselect = document.getElementById('next');
         nextselect.style.display = 'none';
       } else {
         const finalres = displaycurr.join(' ');
 
-        document.getElementById('adminmeetsection').innerHTML = finalres;
+
+        document.getElementById('questiondivision').innerHTML = finalres;
       }
     });
+
 
   document.getElementById('next').addEventListener('click', getNext);
 

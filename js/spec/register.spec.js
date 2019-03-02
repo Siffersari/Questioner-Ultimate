@@ -1,7 +1,7 @@
 import faker from 'faker';
 import puppeteer from 'puppeteer';
 
-const APP = 'http://127.0.0.1:5500/register.html';
+const APP = 'https://siffersari.github.io/Questioner-Ultimate/register.html';
 
 const lead = {
   first: faker.name.firstName(),
@@ -23,20 +23,18 @@ require('babel-polyfill');
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 80,
-    args: [`--window-size=${width},${height}`],
   });
   page = await browser.newPage();
   await page.setViewport({ width, height });
 });
 
-afterAll(() => {
+
+afterAll(async () => {
   browser.close();
 });
 
 
-describe('Signup page', () => {
+describe('Test signup and login form submission page', () => {
   test('assert that <title> is correct', async () => {
     await page.goto(APP);
     const title = await page.title();
@@ -51,7 +49,6 @@ describe('Signup page', () => {
   test('Lead can submit a signup request', async () => {
     try {
       await page.waitForSelector('form[name=signup-form]');
-
       await page.click('input[name=first]');
       await page.type('input[name=first]', lead.first);
       await page.click('input[name=last]');
@@ -74,9 +71,6 @@ describe('Signup page', () => {
       console.log(e);
     }
   }, 26000);
-});
-
-describe('Login form', () => {
   test('assert that <title> is correct', async () => {
     const title = await page.title();
     expect(title).toBe(
@@ -104,5 +98,5 @@ describe('Login form', () => {
     } catch (e) {
       console.log(e);
     }
-  }, 16000);
+  }, 26000);
 });

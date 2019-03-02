@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner - Scheduled Meetups</title>
+    <title>Questioner - Explore Meetups</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -17,7 +17,7 @@
 
         <!-- Right Nav Items-->
         <div class="questioner-navbar-right" id="topnav">
-            <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
+            <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
 
 
             <!-- Dashboard -->
@@ -25,10 +25,15 @@
 
                 <li class="parent"><a href="#" class="questioner-navbar-item questioner-navbar-link">Dashboard</a>
                     <ul class="child">
-                        <li><a href="explore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
+                        <li><a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
+                                Meetup</a></li>
+                        <li><a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a>
                         </li>
-                        <li><a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
-                        </li>
+                        <li><a href="adminexplore.html"
+                                class="questioner-navbar-item questioner-navbar-link">Explore</a></li>
+                        <li><a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm
+                                Going</a></li>
+
                     </ul>
                 </li>
 
@@ -38,7 +43,8 @@
             <div class="questioner-dropdown" id="nav-dropdown">
                 <img src="http://placehold.it/50x50" alt="" class="questioner-avatar">
                 <ul class="questioner-dropdown-content">
-                    <li><a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a></li>
+                    <li><a href="adminprofile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
+                    </li>
                     <li><button class="questioner-btn-logout" id="logoutbtn">Logout</button></li>
                 </ul>
             </div>
@@ -46,24 +52,36 @@
             <div class="questioner-dropdown" id="bars">
                 <i class="questioner-dropdown-icon fa fa-bars"></i>
                 <div class="questioner-dropdown-menu">
-                    <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
-                    <a href="explore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
-                    <a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
-                    <a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
+                    <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
+                    <a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
+                        Meetup</a>
+                    <a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a>
+                    <a href="adminexplore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
+                    <a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
+                    <a href="adminprofile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
                     <button class="questioner-btn-logout" id="logoutbtn">Logout</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="questioner-container fluid">
-        <h1 class="questioner-center main-heading">SCHEDULED MEETUPS</h1>
-        <hr class="questioner-rule semi">
+    <div class="questioner-content">
+        <hr class="questioner-rule partial">
+        <h2 class="questioner-center main-content-heading">EXPLORE </h2>
+        <hr class="questioner-rule partial">
+        <div class="questioner-bar" id="response"></div>
+    </div>
 
-        <div id="adminmeetsection">
+    <div class="questioner-content fluid">
+        <div id="exploremeetups">
+
+
 
         </div>
     </div>
+
+
+
 
     <div class="questioner-pagination" id="viewpagination">
         <div class="questioner-message">
@@ -82,9 +100,7 @@
             <li><a href="#">Help</a></li>
         </ul>
     </footer>
-
-
-    <script src="js/scheduled.js"></script>
+    <script src="js/adminexplore.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

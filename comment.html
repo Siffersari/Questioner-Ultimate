@@ -17,7 +17,7 @@
 
         <!-- Right Nav Items-->
         <div class="questioner-navbar-right" id="topnav">
-            <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
+            <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link active" id="home">Home</a>
 
 
             <!-- Dashboard -->
@@ -25,9 +25,10 @@
 
                 <li class="parent"><a href="#" class="questioner-navbar-item questioner-navbar-link">Dashboard</a>
                     <ul class="child">
-                        <li><a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a></li>
-                        <li><a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
-                                Questions</a></li>
+                        <li><a href="explore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
+                        </li>
+                        <li><a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -35,7 +36,7 @@
 
             <!-- Profile picture with dropdown list -->
             <div class="questioner-dropdown" id="nav-dropdown">
-                <img src="https://placehold.it/50x50" alt="" class="questioner-avatar">
+                <img src="http://placehold.it/50x50" alt="" class="questioner-avatar">
                 <ul class="questioner-dropdown-content">
                     <li><a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a></li>
                     <li><button class="questioner-btn-logout" id="logoutbtn">Logout</button></li>
@@ -45,10 +46,9 @@
             <div class="questioner-dropdown" id="bars">
                 <i class="questioner-dropdown-icon fa fa-bars"></i>
                 <div class="questioner-dropdown-menu">
-                    <a href="administrator.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
+                    <a href="meetuptop.html" class="questioner-navbar-item questioner-navbar-link">Home</a>
+                    <a href="explore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
                     <a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
-                    <a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
-                        Questions</a>
                     <a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
                     <button class="questioner-btn-logout" id="logoutbtn">Logout</button>
                 </div>
@@ -59,23 +59,9 @@
 
     <div class="questioner-container fluid">
 
-        <div class="questioner-meetup-container">
-
-            <div class="questioner-product" id="questioner-product-comment">
+        <div class="questioner-meetup-container" id="meetupdivision">
 
 
-                <div class="questioner-product-description">
-                    <h3> <a href="#" class="questioner-list-anchor questioner-comment-head" id="meetuptopic">National
-                            Heritage</a></h3>
-                    <p id="questioner-comment-paragraph">Embracing cultural beliefs and misconceptions.</p>
-                    <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> Bomas of Kenya, Nairobi</span>
-                    <br><br>
-                    <span class="questioner-span"> 05/01/19 </span>
-                    <span class="questioner-span">10:30 AM</span>
-
-                </div>
-
-            </div>
         </div>
 
         <div class="questioner-content">
@@ -118,8 +104,8 @@
                 <h3>Comment </h3>
                 <div class="questioner-textbox">
 
-                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="5" placeholder="Type your comment here"
-                        id="commentbody"></textarea>
+                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="5"
+                        placeholder="Type your comment here" id="commentbody"></textarea>
                     <br>
                 </div>
                 <br>

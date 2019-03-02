@@ -1,85 +1,3 @@
-const postquestionbtn = document.getElementById('postquestion');
-
-function attendMeetup(id) {
-  fetch(`https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/${id}/rsvps`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
-    body: JSON.stringify({
-      response: 'yes',
-    }),
-  })
-    .then(async (resp) => {
-      const responseMessage = document.getElementById('response');
-      if (resp.ok) {
-        const data = await resp.json();
-
-        responseMessage.innerHTML = 'Success';
-
-        responseMessage.className += ' show';
-
-        setTimeout(() => {
-          responseMessage.className = responseMessage.className.replace('show', '');
-        }, 3000);
-      }
-      if (resp.status !== 200) {
-        const dataOne = await resp.json();
-
-        responseMessage.innerHTML = dataOne.error;
-
-        responseMessage.className += ' show';
-
-        setTimeout(() => {
-          responseMessage.className = responseMessage.className.replace('show', '');
-        }, 3000);
-      }
-    });
-}
-
-
-function postQuestion(event) {
-  event.preventDefault();
-
-  const query = window.location.search.substring(1);
-  const meetupId = query.split('=')[1];
-
-
-  fetch('https://questioner-apiv2-siffersari.herokuapp.com/api/v2/questions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
-    body: JSON.stringify({
-      meetup: meetupId,
-      title: document.getElementById('questiontitle').value,
-      body: document.getElementById('questiondescription').value,
-    }),
-  })
-    .then(async (response) => {
-      const responseMessage = document.getElementById('response');
-      if (response.ok) {
-        responseMessage.innerHTML = 'Your question is now live';
-
-        responseMessage.className += ' show';
-
-        setTimeout(() => {
-          responseMessage.className = responseMessage.className.replace('show', '');
-        }, 3000);
-
-        setTimeout(() => {
-          window.location.href = `question.html?mi=${meetupId}`;
-        }, 2000);
-      }
-      if (response.status !== 201) {
-        const dataOne = await response.json();
-        responseMessage.innerHTML = dataOne.error;
-
-        responseMessage.className += ' show';
-
-        setTimeout(() => {
-          responseMessage.className = responseMessage.className.replace('show', '');
-        }, 3000);
-      }
-    });
-}
-
 
 window.onload = function getDetails(event) {
   event.preventDefault();
@@ -109,16 +27,7 @@ window.onload = function getDetails(event) {
             <span class="questioner-span"> ${data.data[0].happeningOn}</span>
         </div>
 
-    </div>
-    <div class="questioner-tabs">
-                
-
-                <div class="questioner-tabs-item" >
-                    <br>
-                    <h3 class="pointer" onclick="attendMeetup(${meetupId});"> ATTEND </h3>
-                </div>
-
-            </div>`;
+    </div>`;
 
         document.getElementById('meetupdivision').innerHTML = result;
       }
@@ -166,6 +75,7 @@ window.onload = function getDetails(event) {
                 </p>
                 <div class="questioner-question-accessories">
                 <span>${data.data[i].votes}</span> <i class="fa fa-thumbs-up questioner-votes"></i>
+                    <span class="questioner-comments">0</span> <i class="fa fa-comment"></i>
                 </div>
             </div>
             </div>`;
@@ -200,6 +110,3 @@ window.onload = function getDetails(event) {
       }
     });
 };
-
-
-postquestionbtn.addEventListener('click', postQuestion);

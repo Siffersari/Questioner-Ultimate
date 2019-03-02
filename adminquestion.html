@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner - Delete Meetup</title>
+    <title>Questioner - Post Question</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
     <div class="questioner-navbar">
         <!-- Logo -->
         <a href="#" class="questioner-navbrand">QUESTIONER</a>
@@ -66,18 +67,61 @@
     </div>
 
 
-    <div class="questioner-meetup-container fluid pad-top">
+
+    <div class="questioner-container fluid">
         <div class="questioner-bar" id="response"></div>
-        <h1 class="questioner-center">DELETE MEETUP</h1>
-        <hr class="questioner-rule partial">
-        <p class="questioner-center danger">Before proceeding <br> Please note that this action <b>cannot</b> be
-            reversed once done!</p>
-        <hr class="questioner-rule ">
-        <div id="deletemeetdiv"></div>
+
+
+
+        <div class="questioner-meetup-container" id="meetupdivision">
+
+
+        </div>
+        <div class="questioner-content">
+            <p class="top-response" id="questionresp"></p>
+            <hr class="questioner-rule partial">
+
+            <h1 class="questioner-center main-content-heading">MEETUP QUESTIONS</h1>
+            <hr class="questioner-rule partial">
+        </div>
+        <div id="questiondivision">
+
+        </div>
+
+        <div class="questioner-content">
+            <hr class="questioner-rule partial">
+            <h1 class="questioner-center main-content-heading">ASK QUESTION</h1>
+            <hr class="questioner-rule partial">
+        </div>
+        <div class="questioner-forms">
+            <form action="" class="questioner-signup">
+                <h3> Title </h3>
+                <div class="questioner-textbox">
+
+                    <input type="text" placeholder="E.g   Improving Motor Efficiency" id="questiontitle">
+                    <br>
+                </div>
+
+                <h3>Description</h3>
+                <div class="questioner-textbox">
+
+                    <textarea rows="10" cols="33" wrap="physical" name="comments" required minlength="50"
+                        id="questiondescription"></textarea>
+                    <br>
+                </div>
+
+                <br>
+
+
+
+                <button class="questioner-btn-transround" id="postquestion">POST QUESTION</button>
+
+
+
+            </form>
+        </div>
 
     </div>
-
-
 
     <footer class="questioner-footer">
         <p>&copy; Questioner 2019. All Rights Reserved.</p>
@@ -88,7 +132,8 @@
         </ul>
     </footer>
 
-    <script src="js/deletemeet.js"></script>
+
+    <script src="js/adminpostquestion.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

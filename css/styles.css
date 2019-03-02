@@ -77,6 +77,10 @@ input:focus:valid {
     width: 60%;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .questioner-rule {
     color: rgba(220,224,244,0.4);
 }

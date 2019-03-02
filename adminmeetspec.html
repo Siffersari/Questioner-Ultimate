@@ -27,10 +27,13 @@
                     <ul class="child">
                         <li><a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
                                 Meetup</a></li>
-                        <li><a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a></li>
-                        <li><a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a></li>
-                        <li><a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
-                                Questions</a></li>
+                        <li><a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a>
+                        </li>
+                        <li><a href="adminexplore.html"
+                                class="questioner-navbar-item questioner-navbar-link">Explore</a></li>
+                        <li><a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm
+                                Going</a></li>
+
                     </ul>
                 </li>
 
@@ -40,7 +43,8 @@
             <div class="questioner-dropdown" id="nav-dropdown">
                 <img src="http://placehold.it/50x50" alt="" class="questioner-avatar">
                 <ul class="questioner-dropdown-content">
-                    <li><a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a></li>
+                    <li><a href="adminprofile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
+                    </li>
                     <li><button class="questioner-btn-logout" id="logoutbtn">Logout</button></li>
                 </ul>
             </div>
@@ -52,10 +56,9 @@
                     <a href="create.html" class="questioner-navbar-item questioner-navbar-link">Create
                         Meetup</a>
                     <a href="meetups.html" class="questioner-navbar-item questioner-navbar-link">My Meetups</a>
-                    <a href="going.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
-                    <a href="questions.html" class="questioner-navbar-item questioner-navbar-link">My
-                        Questions</a>
-                    <a href="profile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
+                    <a href="adminexplore.html" class="questioner-navbar-item questioner-navbar-link">Explore</a>
+                    <a href="scheduledadmin.html" class="questioner-navbar-item questioner-navbar-link">I'm Going</a>
+                    <a href="adminprofile.html" class="questioner-navbar-item questioner-navbar-link">Profile</a>
                     <button class="questioner-btn-logout" id="logoutbtn">Logout</button>
                 </div>
             </div>
@@ -65,89 +68,21 @@
 
     <div class="questioner-container fluid">
 
-        <div class="questioner-meetup-container" >
+        <div class="questioner-bar" id="response"></div>
 
-            <div class="questioner-product pad-top">
-
-                <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
-                <div class="questioner-product-description">
-                    <h3> <a href="#" class="questioner-list-anchor">National Heritage</a></h3>
-                    <p>Embracing cultural beliefs and misconceptions.</p>
-                    <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> Bomas of Kenya, Nairobi</span>
-                    <br><br>
-                    <span class="questioner-span"> 05/01/19 </span>
-                    <span class="questioner-span">10:30 AM</span>
-
-                </div>
+        <div class="questioner-meetup-container" id=meetupdivision>
 
 
-            </div>
         </div>
         <div class="questioner-content">
             <hr class="questioner-rule partial">
             <h2 class="questioner-center main-content-heading">TOP QUESTIONS</h2>
             <hr class="questioner-rule partial">
         </div>
-        <div class="questioner-message">
 
-            <div class="questioner-message-name">
-                <h3>Zinedine Zidane</h3>
-                <p>5/01/19</p>
-            </div>
-            <div class="questioner-message-body">
+        <div id="questiondivision">
 
-                <p><strong>The KhoiKhoi and Khoisan</strong></p>
-                <p>
-                    I can't quite seem to remember what language these tribes speak, Anyone?
-                </p>
-                <div class="questioner-question-accessories">
-                    <span>98</span> <i class="fa fa-thumbs-up questioner-votes"></i>
-                    <span class="questioner-comments">29</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
         </div>
-
-        <div class="questioner-message">
-
-            <div class="questioner-message-name">
-                <h3>Olamide Duane</h3>
-                <p>5/01/19</p>
-            </div>
-            <div class="questioner-message-body">
-                
-                <p><strong>I am not sure yet</strong></p>
-                <p>
-                    I am not sure yet! Maybe Zidane made football culture news
-                </p>
-                <div class="questioner-question-accessories">
-                    <span>88</span> <i class="fa fa-thumbs-up questioner-votes"></i>
-                    <span class="questioner-comments">55</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="questioner-message">
-
-            <div class="questioner-message-name">
-                <h3>Gaucho Mmoja</h3>
-                <p>5/01/19</p>
-            </div>
-            <div class="questioner-message-body">
-                
-                <p><strong>Cultural celebrations</strong></p>
-                <p>
-                    What amazing cultural celebrations have you been priviledges to take part in ?
-                </p>
-                <div class="questioner-question-accessories">
-                    <span>78</span> <i class="fa fa-thumbs-up questioner-votes"></i>
-                    <span class="questioner-comments">40</span> <i class="fa fa-comment"></i>
-                </div>
-            </div>
-        </div>
-
-
-
 
     </div>
 
@@ -161,7 +96,7 @@
     </footer>
 
 
-    <script src="js/main.js"></script>
+    <script src="js/admintop.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

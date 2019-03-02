@@ -104,7 +104,7 @@ window.onload = function getMeetups(event) {
 
           <img src="images/meetup150.jpeg" alt="" class="questioner-product-image">
           <div class="questioner-product-description">
-              <h3> <a href="#" class="questioner-list-anchor">${data.data[0].createdMeets[i][2]}</a></h3>
+              <h3> <a href="adminmeetspec.html?mi=${data.data[0].createdMeets[i][0]}" class="questioner-list-anchor">${data.data[0].createdMeets[i][2]}</a></h3>
               <p class="questioner-tags">${data.data[0].createdMeets[i][6]}</p>
               <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].createdMeets[i][4]} </span>
               <br><br>
