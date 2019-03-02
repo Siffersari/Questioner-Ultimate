@@ -3,6 +3,11 @@
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize
 questions to be answered. Other users can vote on asked questions and they bubble to the top.
 
+### Badges
+[![Build Status](https://travis-ci.com/Siffersari/Questioner-Ultimate.svg?branch=gh-pages)](https://travis-ci.com/Siffersari/Questioner-Ultimate)
+
+
+
 # Background Knowledge
 This is the User Interface(UI) consuming the Questioner API
 
