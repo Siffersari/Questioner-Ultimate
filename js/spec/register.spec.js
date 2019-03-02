@@ -28,7 +28,6 @@ beforeAll(async () => {
   await page.setViewport({ width, height });
 });
 
-require('babel-polyfill');
 
 afterAll(async () => {
   browser.close();
