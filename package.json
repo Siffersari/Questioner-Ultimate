@@ -4,8 +4,8 @@
   "description": "Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
-    "coveralls": "jest --coverage && coveralls"
+    "test": "jest --coverage --detectOpenHandles --forceExit",
+    "coveralls": "coveralls"
   },
   "jest": {
     "collectCoverage": true,
