@@ -23,16 +23,13 @@ require('babel-polyfill');
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 80,
-    args: [`--window-size=${width},${height}`],
   });
   page = await browser.newPage();
   await page.setViewport({ width, height });
 });
 
 
-describe('Signup page', () => {
+describe('Test signup and login form submission page', () => {
   test('assert that <title> is correct', async () => {
     await page.goto(APP);
     const title = await page.title();
@@ -70,9 +67,6 @@ describe('Signup page', () => {
       console.log(e);
     }
   }, 26000);
-});
-
-describe('Login form', () => {
   test('assert that <title> is correct', async () => {
     const title = await page.title();
     expect(title).toBe(
@@ -100,5 +94,5 @@ describe('Login form', () => {
     } catch (e) {
       console.log(e);
     }
-  }, 16000);
+  }, 26000);
 });
