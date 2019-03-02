@@ -1,7 +1,7 @@
 import faker from 'faker';
 import puppeteer from 'puppeteer';
 
-const APP = 'http://127.0.0.1:5500/register.html';
+const APP = 'https://siffersari.github.io/Questioner-Ultimate/register.html';
 
 const lead = {
   first: faker.name.firstName(),
