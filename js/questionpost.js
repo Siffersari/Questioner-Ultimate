@@ -1,5 +1,40 @@
 const postquestionbtn = document.getElementById('postquestion');
 
+function attendMeetup(id) {
+  fetch(`https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/${id}/rsvps`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
+    body: JSON.stringify({
+      response: 'yes',
+    }),
+  })
+    .then(async (resp) => {
+      const responseMessage = document.getElementById('response');
+      if (resp.ok) {
+        const data = await resp.json();
+
+        responseMessage.innerHTML = 'Success';
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
+      }
+      if (resp.status !== 200) {
+        const dataOne = await resp.json();
+
+        responseMessage.innerHTML = dataOne.error;
+
+        responseMessage.className += ' show';
+
+        setTimeout(() => {
+          responseMessage.className = responseMessage.className.replace('show', '');
+        }, 3000);
+      }
+    });
+}
+
 
 function postQuestion(event) {
   event.preventDefault();
@@ -62,40 +97,28 @@ window.onload = function getDetails(event) {
         const data = await resp.json();
 
         const result = `
-        <div class="questioner-tabs">
-                <div class="questioner-tabs-item active">
-                    <h3>0</h3>
-                    <p>Attending</p>
-                </div>
-                <div class="questioner-tabs-item">
-                    <h3>0</h3>
-                    <p>Questions</p>
-
-                </div>
-                <div class="questioner-tabs-item" id="alt-tab">
-                    <h3>0</h3>
-                    <p>Comments</p>
-
-                </div>
-
-                <div class="questioner-tabs-item" id="last-tab">
-                    <br>
-                    <h3> ATTEND </h3>
-                </div>
-
-            </div>
-        <div class="questioner-product">
+        
+        <div class="questioner-product pad-top">
 
         <img src="https://picsum.photos/200/150?image=0" alt="" class="questioner-product-image">
         <div class="questioner-product-description">
-            <h3> <a href="details.html?mi=${data.data[0].id}" class="questioner-list-anchor" id="meetuptopic">${data.data[0].topic}</a></h3>
+            <h3> <a href=# class="questioner-list-anchor" id="meetuptopic">${data.data[0].topic}</a></h3>
             <p></p>
             <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].location}</span>
             <br><br>
             <span class="questioner-span"> ${data.data[0].happeningOn}</span>
         </div>
 
-    </div>`;
+    </div>
+    <div class="questioner-tabs">
+                
+
+                <div class="questioner-tabs-item" >
+                    <br>
+                    <h3 class="pointer" onclick="attendMeetup(${meetupId});"> ATTEND </h3>
+                </div>
+
+            </div>`;
 
         document.getElementById('meetupdivision').innerHTML = result;
       }
@@ -143,7 +166,6 @@ window.onload = function getDetails(event) {
                 </p>
                 <div class="questioner-question-accessories">
                 <span>${data.data[i].votes}</span> <i class="fa fa-thumbs-up questioner-votes"></i>
-                    <span class="questioner-comments">0</span> <i class="fa fa-comment"></i>
                 </div>
             </div>
             </div>`;
