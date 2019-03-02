@@ -49,7 +49,6 @@ describe('Test signup and login form submission page', () => {
   test('Lead can submit a signup request', async () => {
     try {
       await page.waitForSelector('form[name=signup-form]');
-
       await page.click('input[name=first]');
       await page.type('input[name=first]', lead.first);
       await page.click('input[name=last]');
