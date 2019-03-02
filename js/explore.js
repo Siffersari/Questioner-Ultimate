@@ -87,7 +87,7 @@ window.onload = function getMeetups(event) {
                       <img src="https://placehold.it/50x50" alt="" class="questioner-avatar-small questioner-card-image">
                   </div>
                   <div class="questioner-card-description">
-                      <h2 class="pad-left-half"><a href="details.html" class="questioner-explore-card">${data.data[i].topic}</a></h2>
+                      <h2 class="pad-left-half"><a href=# class="questioner-explore-card">${data.data[i].topic}</a></h2>
                       <p></p>
                       <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[i].location} </span>
                       <br><br>
