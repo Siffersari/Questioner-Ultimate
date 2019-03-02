@@ -70,7 +70,7 @@ window.onload = function getMeetups(event) {
         const data = await resp.json();
         let numberMeetups = data.data[0].scheduledMeets.length;
         if (numberMeetups === 0 || (data.data[0].scheduledMeets).includes('None')) {
-          document.getElementById('adminmeetsview').innerHTML = 'No meetups found yet';
+          document.getElementById('adminmeetsection').innerHTML = 'No meetups found yet';
           const paginationdiv = document.getElementById('viewpagination');
           paginationdiv.style.display = 'none';
           numberMeetups = 0;
