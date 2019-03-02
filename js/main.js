@@ -3,7 +3,7 @@ const responseMessage = document.getElementById('response');
 const pagearray = [];
 
 function promptSignup() {
-  responseMessage.innerHTML = 'Please signup first to see more meetups';
+  responseMessage.innerHTML = 'Please sign up first to see more.';
 
   responseMessage.className += ' show';
 
@@ -30,7 +30,7 @@ window.onload = function fetchUpcoming(event) {
         if (numberMeetups === 0) {
           const meetDiv = document.getElementById('meetupdivision');
           meetDiv.className += ' top-response';
-          meetDiv.innerHTML = '<br><br><h2> Oops! This is rather embarassing. <br> There seems to be no upcoming meetups!</h2>';
+          meetDiv.innerHTML = '<br><br><h2> Oops! <br> There seems to be no upcoming meetups!</h2>';
           const paginationdiv = document.getElementById('viewpagination');
           paginationdiv.style.display = 'none';
         }
@@ -39,14 +39,14 @@ window.onload = function fetchUpcoming(event) {
         while (i >= 0) {
           pagearray.push(`
           <div class="questioner-column pad-bottom">
-                <div class="questioner-card-detail">
+                <div class="questioner-card-detail" onclick="promptSignup();">
                     <div class="questioner-card">
                         <span class="questioner-card-category">${data.data[i].createdBy}</span>
 
                         <img src="http://placehold.it/50x50" alt="" class="questioner-avatar-small questioner-card-image">
                     </div>
                     <div class="questioner-card-description">
-                    <h2 class="pad-left-half"><a href="details.html?mi=${data.data[i].id}" class="questioner-explore-card">${data.data[i].topic}</a></h2>
+                    <h2 class="pad-left-half"><a class="questioner-explore-card">${data.data[i].topic}</a></h2>
                         <p></p>
                         <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[i].location}</span>
                         <br><br>
