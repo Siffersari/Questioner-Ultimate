@@ -19,6 +19,45 @@ window.onload = function getQuestion(event) {
           document.getElementById('questiondivision').innerHTML = 'No questions asked yet';
         }
 
+        const meetupId = questiondata.data[0].meetup;
+
+        const url = `https://questioner-apiv2-siffersari.herokuapp.com/api/v2/meetups/${meetupId}`;
+
+        fetch(url, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
+        })
+          .then(async (resp) => {
+            if (resp.ok) {
+              const data = await resp.json();
+
+              const meetupData = `
+        <div class="questioner-product" id="questioner-product-comment">
+
+        <div class="questioner-product-description">
+            <h3> <a href="#" class="questioner-list-anchor questioner-comment-head" id="meetuptopic">${data.data[0].topic}</a></h3>
+            <p></p> <br>
+            <span class="questioner-span" id="venue"><i class="fa fa-map-marker"></i> ${data.data[0].location}</span>
+            <br><br>
+            <span class="questioner-span"> ${data.data[0].happeningOn}</span>
+        </div>
+
+    </div>`;
+
+              document.getElementById('meetupdivision').innerHTML = meetupData;
+            }
+            if (resp.status !== 200) {
+              const dataOne = await resp.json();
+              responseMessage.innerHTML = dataOne.error;
+
+              responseMessage.className += ' show';
+
+              setTimeout(() => {
+                responseMessage.className = responseMessage.className.replace('show', '');
+              }, 3000);
+            }
+          });
+
 
         let result = '<div class="questioner-message bottomless"> ';
 
@@ -34,7 +73,6 @@ window.onload = function getQuestion(event) {
                       ${questiondata.data[0].body}
                   </p>
                   <div class="questioner-question-accessories">
-                      <span class="questioner-comments">0</span> <i class="fa fa-comment"></i>
                   </div>
               </div>
               </div>`;
