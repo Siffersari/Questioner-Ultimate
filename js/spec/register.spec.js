@@ -31,10 +31,6 @@ beforeAll(async () => {
   await page.setViewport({ width, height });
 });
 
-afterAll(() => {
-  browser.close();
-});
-
 
 describe('Signup page', () => {
   test('assert that <title> is correct', async () => {
