@@ -92,7 +92,6 @@ window.onload = function getTopQuestions(event) {
                   </p>
                   <div class="questioner-question-accessories">
                     <span>${data.data[i].votes}</span> <i class="fa fa-thumbs-up questioner-votes"></i>
-                    <span class="questioner-comments">70</span> <i class="fa fa-comment"></i>
                 </div>
               </div>
               </div>`);
