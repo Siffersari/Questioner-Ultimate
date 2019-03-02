@@ -28,6 +28,12 @@ beforeAll(async () => {
   await page.setViewport({ width, height });
 });
 
+require('babel-polyfill');
+
+afterAll(async () => {
+  browser.close();
+});
+
 
 describe('Test signup and login form submission page', () => {
   test('assert that <title> is correct', async () => {
